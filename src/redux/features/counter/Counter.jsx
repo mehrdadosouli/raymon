@@ -1,28 +1,32 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { decrement, increment } from './counterSlice'
+import { useQuery } from '@tanstack/react-query'
 
-export function Counter() {
-  const count = useSelector((state) => state.counter.value)
+export function Counter({idProduct}) {
+  const { data: allProducts } = useQuery({ queryKey: ['GETPRODUCTS'], queryFn: () => getAllProducts() })
+  const productBasket = useSelector((state) => state.products.basket?.find(item=>item.id == idProduct))
   const dispatch = useDispatch()
-
+  const productSelect=allProducts.find(item=>item.id == idProduct)
+  console.log(productBasket);
+  
   return (
     <div>
       <div>
         <button
-          style={{ padding: '1rem', cursor: 'pointer' }}
+          style={{ padding: '5px', cursor: 'pointer' }}
           aria-label="Increment value"
-          onClick={() => dispatch(increment())}
+          onClick={() => dispatch(increment(productSelect))}
         >
-          Increment
+          +
         </button>
-        <span style={{ padding: '1rem' }}>{count}</span>
+        <span style={{ padding: '5px' }}>{ !productBasket ? '0' : productBasket.count}</span>
         <button
-          style={{ padding: '1rem', cursor: 'pointer' }}
+          style={{ padding: '5px', cursor: 'pointer' }}
           aria-label="Decrement value"
-          onClick={() => dispatch(decrement())}
+          onClick={() => dispatch(decrement(productSelect))}
         >
-          Decrement
+          -
         </button>
       </div>
     </div>

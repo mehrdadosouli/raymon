@@ -8,7 +8,8 @@ import { Provider } from 'react-redux'
 // react-query
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-const queryClient = new QueryClient()
+import defaultConfig from './config/reactQuery.js'
+const queryClient = new QueryClient({defaultConfig})
 
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
