@@ -1,5 +1,7 @@
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
+import '../src/App.css'
+
 // react-router-dom
 import { BrowserRouter } from 'react-router-dom'
 // reduxt-toolkit

@@ -1,0 +1,23 @@
+/* Slider.css */  
+.sliderContainer {  
+    width: 100%; /* Make container full-width */  
+    max-width: 800px; /* Set a maximum width */  
+    margin: 0 auto; /* Center the slider */  
+    overflow: hidden; /* Prevent overflow issues */  
+}  
+
+.sliderContent {  
+    height: 100%; /* Set height */  
+    color: #fff;  
+    line-height: 150px; /* Adjust line height for better vertical centering */  
+    text-align: center;  
+    background: #364d79;  
+
+    /* Responsive Styles */  
+}  
+
+@media (max-width: 600px) {  
+    .slider-content {  
+        line-height: 100px; /* Decrease line height on smaller screens */  
+    }  
+}

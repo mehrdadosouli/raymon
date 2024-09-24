@@ -3,6 +3,7 @@ import Header from './layouts/Header'
 import Footer from './layouts/Footer'
 import NotFound from './pages/NotFound'
 import Home from './pages/Home'
+import Login from './pages/Login'
 import './App.css'
 
 
@@ -14,6 +15,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />
