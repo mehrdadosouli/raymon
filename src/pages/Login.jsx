@@ -5,8 +5,6 @@ import Slider from '../components/Slider';
 import '../styles/login.css'
 const Login = () => {
     const [activeKey, setActiveKey] = useState("1");
-    const [form, changeForm] = useState('login')
-
     const onFinish = (values) => {
         console.log('Received values of form: ', values);
     };

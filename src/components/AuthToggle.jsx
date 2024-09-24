@@ -18,7 +18,7 @@ const AuthToggle = ({activeKey, setActiveKey}) => {
   };
 
   return (
-    <div style={{ margin: "auto",width:'100%' }}>
+    <div style={{ width:'100%' }}>
       <Tabs activeKey={activeKey} onChange={handleTabChange}>
         <TabPane tab="Login" key="1">
           <Form onFinish={handleLogin}>
@@ -67,7 +67,7 @@ const AuthToggle = ({activeKey, setActiveKey}) => {
               <Input.Password placeholder="Password" />
             </Form.Item>
             <Form.Item>
-              <Button type="primary" htmlType="submit">
+              <Button type="default" htmlType="submit">
                 Sign Up
               </Button>
             </Form.Item>

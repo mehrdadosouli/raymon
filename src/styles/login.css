@@ -6,3 +6,16 @@
 .ant-tabs-nav-wrap{
     width: 100%;
 }
+.ant-row.ant-form-item-row.css-dev-only-do-not-override-11lehqq {
+    display: flex;
+    flex-direction: column;
+    direction: rtl;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+button.ant-btn.css-dev-only-do-not-override-11lehqq.ant-btn-default{
+    margin-top: 2rem;
+}
+.ant-form-item.css-dev-only-do-not-override-11lehqq.ant-form-item-with-help.ant-form-item-has-error{
+    padding-bottom: 0.5rem;
+}
