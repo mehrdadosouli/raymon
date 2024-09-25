@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://fakestoreapi.com/",
+  baseURL: "https://moviesapi.ir/api/v1/",
   headers: {
     "Content-Type": "application/json",
   },

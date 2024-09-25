@@ -4,6 +4,17 @@ import AuthToggle from '../components/AuthToggle'
 import Slider from '../components/Slider';
 import '../styles/login.css'
 const Login = () => {
+// slider config
+    const contentStyle = {  
+        minHeight: '80vh',  
+        color: '#fff',  
+        lineHeight: '80vh',  
+        textAlign: 'center',  
+        background: '#364d79',  
+        margin:0
+    }; 
+    const content = ['1','2','3','4','5']; // Dynamic content array  
+///////////////////////////////////////////////////////////////
     const [activeKey, setActiveKey] = useState("1");
     const onFinish = (values) => {
         console.log('Received values of form: ', values);
@@ -22,7 +33,7 @@ const Login = () => {
                 </Layout>
             </div>
             <div style={{ width: '65%', overflow: 'hidden', borderRadius: '10px' }}>
-                <Slider />
+                <Slider contentStyle={contentStyle} content={content} />
             </div>
         </Flex>
     );

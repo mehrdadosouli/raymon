@@ -2,27 +2,13 @@ import React, { useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import '../App.css';
-
+import { Counter } from '../redux/features/counter/Counter'
+import { getAllProducts } from '../services/getAllProducts'
+import { useQuery } from '@tanstack/react-query';
 const SliderHomePage = () => {
+    const { data: allMovies } = useQuery({ queryKey: ['GETPRODUCTS'], queryFn: () => getAllProducts() })
+
     const [currentSlide, setCurrentSlide] = useState(0);
-    const data = [
-        {
-            title: 'Wonder Woman',
-            image: 'https://dkstatics-public.digikala.com/digikala-adservice-banners/fcd165769cba76a7c9b80ea2d74f4e1ec66b93f0_1727018908.jpg?x-oss-process=image/quality,q_95',
-            background: 'https://dkstatics-public.digikala.com/digikala-adservice-banners/fcd165769cba76a7c9b80ea2d74f4e1ec66b93f0_1727018908.jpg?x-oss-process=image/quality,q_95',
-        },
-        {
-            title: 'Batman',
-            image: 'https://dkstatics-public.digikala.com/digikala-adservice-banners/52da21f391c19df8c7747e4d48700faef29f8a08_1726999912.gif?x-oss-process=image',
-            background: 'https://dkstatics-public.digikala.com/digikala-adservice-banners/52da21f391c19df8c7747e4d48700faef29f8a08_1726999912.gif?x-oss-process=image',
-        },
-        {
-            title: 'Superman',
-            image: 'https://dkstatics-public.digikala.com/digikala-adservice-banners/fcd165769cba76a7c9b80ea2d74f4e1ec66b93f0_1727018908.jpg?x-oss-process=image/quality,q_95',
-            background: 'https://dkstatics-public.digikala.com/digikala-adservice-banners/fcd165769cba76a7c9b80ea2d74f4e1ec66b93f0_1727018908.jpg?x-oss-process=image/quality,q_95',
-        },
-    ];
 
     const settings = {
         dots: false,
@@ -36,17 +22,19 @@ const SliderHomePage = () => {
         beforeChange: (current, next) => {
             setCurrentSlide(next);
         },
+
     };
 
-    const currentBackground = data[currentSlide]?.background || '';
+    const currentBackground = allMovies?.data[currentSlide]?.poster || '';
 
     return (
-        <div className='flex flex-col justify-end h-screen overflow-hidden relative'>
+        <div className='flex flex-col justify-end h-screen overflow-hidden '>
             <div
                 style={{
                     backgroundImage: `url(${currentBackground})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
+                    height: '100vh',
                     position: 'absolute',
                     top: 0,
                     left: 0,
@@ -57,18 +45,40 @@ const SliderHomePage = () => {
             />
 
             <Slider {...settings}>
-                {data.map((item, index) => (
+                {allMovies?.data?.map((item, index) => (
                     <div key={index}></div>
                 ))}
             </Slider>
-            <div style={{ display: 'flex', justifyContent: 'center', }}>
-                {data.map((item, index) => (
-                    <div key={index} style={{ textAlign: 'center', margin: '0 10px 40px 10px' }} className=''>
-                        <img src={item.image} alt={item.title} style={{ width: '200px', borderRadius: '10px', cursor: 'pointer', border: currentSlide === index ? '2px solid #fff' : 'none' }}
-                            onClick={() => setCurrentSlide(index)}
-                        />
-                    </div>
-                ))}
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'end' }}>
+                {window.innerWidth > "992" ?
+                    allMovies?.data?.map((item, index) => (
+                        <div key={index} style={{ textAlign: 'center', margin: '0 10px 15vh 10px' }} className=''>
+                            <img src={item.poster} alt={item.title} style={{ width: '200px', borderRadius: '10px', cursor: 'pointer', border: currentSlide === index ? '2px solid #fff' : 'none', objectFit: 'cover', height: currentSlide === index ? '20rem' : '10rem', width: currentSlide === index ? '20rem' : '10rem' }}
+                                onClick={() => setCurrentSlide(index)}
+                            />
+                        </div>
+
+                    )) :
+                    window.innerWidth > "772" ?
+                    allMovies?.data?.slice(0,7).map((item, index) => (
+                        <div key={index} style={{ textAlign: 'center', margin: '0 10px 15vh 10px' }} className=''>
+                            <img src={item.poster} alt={item.title} style={{ width: '200px', borderRadius: '10px', cursor: 'pointer', border: currentSlide === index ? '2px solid #fff' : 'none', objectFit: 'cover', height: currentSlide === index ? '20rem' : '10rem', width: currentSlide === index ? '20rem' : '10rem' }}
+                                onClick={() => setCurrentSlide(index)}
+                            />
+                        </div>
+
+                    )) 
+                    :
+                    allMovies?.data?.slice(0,3).map((item, index) => (
+                        <div key={index} style={{ textAlign: 'center', margin: '0 10px 15vh 10px' }} className=''>
+                            <img src={item.poster} alt={item.title} style={{ width: '200px', borderRadius: '10px', cursor: 'pointer', border: currentSlide === index ? '2px solid #fff' : 'none', objectFit: 'cover', height: currentSlide === index ? '20rem' : '10rem', width: currentSlide === index ? '20rem' : '10rem' }}
+                                onClick={() => setCurrentSlide(index)}
+                            />
+                        </div>
+
+                    )) 
+                    
+                    }
             </div>
         </div>
     );
