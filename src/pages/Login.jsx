@@ -21,7 +21,7 @@ const Login = () => {
                     <AuthToggle activeKey={activeKey} setActiveKey={setActiveKey} />
                 </Layout>
             </div>
-            <div style={{ width: '65%', height: '81vh', overflow: 'hidden', borderRadius: '10px' }}>
+            <div style={{ width: '65%', overflow: 'hidden', borderRadius: '10px' }}>
                 <Slider />
             </div>
         </Flex>

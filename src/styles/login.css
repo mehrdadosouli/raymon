@@ -19,3 +19,6 @@ button.ant-btn.css-dev-only-do-not-override-11lehqq.ant-btn-default{
 .ant-form-item.css-dev-only-do-not-override-11lehqq.ant-form-item-with-help.ant-form-item-has-error{
     padding-bottom: 0.5rem;
 }
+:where(.css-dev-only-do-not-override-11lehqq).ant-form-item .ant-form-item-label >label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before , :where(.css-dev-only-do-not-override-11lehqq).ant-form-item .ant-form-item-label >label::after{
+    display: none;
+}

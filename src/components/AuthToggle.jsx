@@ -37,7 +37,7 @@ const AuthToggle = ({activeKey, setActiveKey}) => {
               <Input.Password placeholder="Password" />
             </Form.Item>
             <Form.Item>
-              <Button type="default" htmlType="submit">
+              <Button type="default" htmlType="submit" className="w-full bg-orange-300">
                 Login
               </Button>
             </Form.Item>
@@ -67,7 +67,7 @@ const AuthToggle = ({activeKey, setActiveKey}) => {
               <Input.Password placeholder="Password" />
             </Form.Item>
             <Form.Item>
-              <Button type="default" htmlType="submit">
+              <Button type="default" htmlType="submit" className="w-full bg-orange-300">
                 Sign Up
               </Button>
             </Form.Item>

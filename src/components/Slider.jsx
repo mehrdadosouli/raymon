@@ -2,16 +2,16 @@ import React from 'react';
 import { Carousel } from 'antd';  
 
 const contentStyle = {  
-    height: '100%',  
+    minHeight: '80vh',  
     color: '#fff',  
-    lineHeight: '43',  
+    lineHeight: '80vh',  
     textAlign: 'center',  
     background: '#364d79',  
     margin:0
 };  
 
 function Slider() {  
-    const content = ['1','2','3','4']; // Dynamic content array  
+    const content = ['1','2','3','4','5']; // Dynamic content array  
     
     return (  
         <Carousel autoplay >  
