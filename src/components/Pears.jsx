@@ -56,13 +56,13 @@ const items = [
     {
         key: '7',
         label: '2023',
-        children: <div className='flex justify-between items-center gap-10 '>
-            <div className='w-1/2'><img  className='w-full h-[400px] object-cover object-top' src={content?.data[7]?.poster} alt="" /></div>
-            <div className='w-1/2'><h3 className='font-bold pb-5 text-xl'>{content?.data[7].title}</h3><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quos illo aut tempore officiis enim sequi accusantium in inventore incidunt expedita, nostrum perferendis natus temporibus sed quae, error maiores quo.</p></div>
+        children: <div className='flex md:flex-row justify-between items-center gap-10 '>
+            <div className='md:w-1/2 w-full'><img  className='w-full h-[400px] object-cover object-top' src={content?.data[7]?.poster} alt="" /></div>
+            <div className='md:w-1/2 w-full'><h3 className='font-bold pb-5 text-xl'>{content?.data[7].title}</h3><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quos illo aut tempore officiis enim sequi accusantium in inventore incidunt expedita, nostrum perferendis natus temporibus sed quae, error maiores quo.</p></div>
         </div>,
     },
 ];
 
 
-    return ( < div className = 'my-10' ><h2 className='mb-5'>Pearls of Azerbaijani cinema</h2><Tabs defaultActiveKey="1" items={items} className='w-full'/></div> )
+    return ( < div className = 'my-20' ><h2 className='mb-5'>Pearls of Azerbaijani cinema</h2><Tabs defaultActiveKey="1" items={items} className='w-full'/></div> )
 };

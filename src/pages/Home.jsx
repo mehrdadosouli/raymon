@@ -3,6 +3,7 @@ import CarouselComponent from "../components/CarouselComponent";
 import SliderHomePage from "../components/SliderHomePage";
 import TitleListMovie from "../components/TitleListMovie";
 import Pears from "../components/Pears";
+import AboutUs from "../components/AboutUs";
 
 
 export default function Home() {
@@ -52,6 +53,7 @@ export default function Home() {
             <TitleListMovie link="/currently" name="Comming Soon" />
             <CarouselComponent contentStyle={contentStyle} content={content?.data} />
             <Pears />
+            <AboutUs />
         </div>
     )
 }
