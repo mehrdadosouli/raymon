@@ -2,7 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import CarouselComponent from "../components/CarouselComponent";
 import SliderHomePage from "../components/SliderHomePage";
 import TitleListMovie from "../components/TitleListMovie";
-import { space } from "postcss/lib/list";
+import Pears from "../components/Pears";
+
 
 export default function Home() {
     const { data: content } = useQuery({ queryKey: ['GETPRODUCTS'] })
@@ -43,15 +44,14 @@ export default function Home() {
 
 
     return (
-        <>
-            {/* <div className='w-full h-[100vh] bg-primary_skeleton'>
-
-            </div> */}
+        <div className="mx-24">
+            
             <SliderHomePage />
             <TitleListMovie link="/currently" name="Currently Playing" />
             <CarouselComponent contentStyle={contentStyle} content={content?.data} />
             <TitleListMovie link="/currently" name="Comming Soon" />
             <CarouselComponent contentStyle={contentStyle} content={content?.data} />
-        </>
+            <Pears />
+        </div>
     )
 }

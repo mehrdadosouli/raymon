@@ -2,7 +2,7 @@ import Slider from "react-slick";
 function CarouselComponent({ contentStyle, content }) {
 
   return (
-    <div className="slider-container mx-16">
+    <div className="slider-container">
       <Slider {...contentStyle} >
         {content?.map(item => <div className="px-2 relative">
           <img src={item?.poster} alt={item?.title || 'Carousel Item'} className="filter brightness-75" />

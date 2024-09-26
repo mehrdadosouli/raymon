@@ -1,10 +1,8 @@
 import { Link } from 'react-router-dom'
-import { getAllProducts } from '../services/getAllProducts'
-import { useQuery } from '@tanstack/react-query';
+
 function TitleListMovie({ link, name }) {
-    const { data: allMovies } = useQuery({ queryKey: ['GETPRODUCTS'], queryFn: () => getAllProducts() })
     return (
-        <div className='flex justify-between items-center py-10 px-20'>
+        <div className='flex justify-between items-center py-10'>
             <span>{name}</span>
             <div className='flex'>
                 <Link to={link}>See More</Link>
