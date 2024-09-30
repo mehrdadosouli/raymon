@@ -4,6 +4,7 @@ import SliderHomePage from "../components/SliderHomePage";
 import TitleListMovie from "../components/TitleListMovie";
 import Pears from "../components/Pears";
 import AboutUs from "../components/AboutUs";
+import LatestNew from "../components/LatestNew";
 
 
 export default function Home() {
@@ -54,6 +55,8 @@ export default function Home() {
             <CarouselComponent contentStyle={contentStyle} content={content?.data} />
             <Pears />
             <AboutUs />
+            <TitleListMovie link="/LatestNew" name="Latest New" />
+            <LatestNew />
         </div>
     )
 }
