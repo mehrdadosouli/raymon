@@ -29,16 +29,16 @@ function LatestNew(props) {
                 </div>
             ) : (
                 // Render data  
-                <div className='flex md:flex-row justify-between items-center gap-10 my-10'>
+                <div className='flex md:flex-row flex-col justify-between items-center gap-10 my-10'>
                     <div className='md:w-1/2 w-full relative'>
                         {allMovies?.data[3] && (
                             <div className='relative'>
-                                <img className='w-full h-[400px] object-cover object-top' src={allMovies.data[3].poster} alt="" />
+                                <img className='w-full h-[400px] object-cover object-top' src={allMovies?.data[3]?.poster} alt="" />
                                 <p className='absolute bottom-1/3 left-10 font-bold text-white z-50'>
-                                    {oneMovie.title}
+                                    {oneMovie?.title}
                                 </p>
                                 <p className='absolute bottom-10 left-10 text-white z-50'>
-                                    {oneMovie.plot}
+                                    {oneMovie?.plot}
                                 </p>
                             </div>
                         )}
@@ -46,12 +46,12 @@ function LatestNew(props) {
                     </div>
                     <div className='md:w-1/2 w-full flex flex-col gap-5'>
                         {allMovies?.data.slice(0, 4).map(item => (
-                            <div className='flex gap-5 relative' key={item?.id} >
+                            <div className='flex gap-5' key={item?.id} >
                                 <div className='relative'>
                                     <img src={item?.poster} className='w-28 h-20' alt={item?.title} />
                                     <div className="absolute inset-0 bg-black opacity-50"></div>
                                 </div>
-                                <p>{item.title}</p>
+                                <p>{item?.title}</p>
                             </div>
                         ))}
                     </div>

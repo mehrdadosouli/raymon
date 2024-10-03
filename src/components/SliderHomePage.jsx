@@ -29,6 +29,7 @@ const SliderHomePage = () => {
     queryKey: ['GETPRODUCTS'],  
     queryFn: () => getAllProducts(),  
   });  
+  
 
   const [currentSlide, setCurrentSlide] = useState(0);  
 
@@ -64,14 +65,13 @@ const SliderHomePage = () => {
           backgroundImage: isLoading ? 'none' : `url(${currentBackground})`,  
           backgroundSize: 'cover',  
           backgroundPosition: 'center',  
-          backgroundColor: isLoading ? '#AAAAAA' : 'transparent',  
           height: '100vh',  
           position: 'absolute',  
           top: 0,  
           left: 0,  
           right: 0,  
           bottom: 0,  
-          zIndex: -1,  
+          zIndex: -10,  
         }}    
       />  
       <Slider {...settings}>  
@@ -81,14 +81,16 @@ const SliderHomePage = () => {
       </Slider>  
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'end' }}>  
         {allMovies?.data?.slice(0, visibleMoviesCount).map((item, index) => (  
-          isLoading ? <SkeletonLoader key={index} x="2vw" y="0" rx="10" ry="0" w="22rem" h={currentSlide === index ? '32rem' : '22rem'}  /> :
+          !isLoading ?
           <MovieImage  
             key={index}  
-            poster={item.poster}  
-            title={item.title}  
+            poster={item?.poster}  
+            title={item?.title}  
             isSelected={currentSlide === index}  
             onClick={() => setCurrentSlide(index)}  
           />  
+          :
+          <SkeletonLoader key={index} x="2vw" y="0" rx="10" ry="0" w="22rem" h={currentSlide === index ? '32rem' : '22rem'}  /> 
         ))}  
       </div>  
     </div>  
